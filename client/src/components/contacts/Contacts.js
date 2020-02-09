@@ -8,6 +8,7 @@ const Contacts = () => {
   const { contacts, filtered, getContacts, loading } = contactContext;
   useEffect(() => {
     getContacts();
+    // eslint-disable-next-line
   }, []);
 
   if (contacts !== null && contacts.length === 0 && contacts !== loading) {
