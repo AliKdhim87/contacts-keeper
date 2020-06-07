@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://ali:Aaa12345@cluster0-tffvl.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "secret"
+  "mongoURI": "",
+  "jwtSecret": ""
 }
