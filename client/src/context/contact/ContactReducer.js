@@ -8,76 +8,78 @@ import {
   FILTER_CONTACT,
   CLEAR_FILTER,
   CONTACT_ERROR,
-  CLEAR_CONTACTS
-} from "../types";
+  CLEAR_CONTACTS,
+} from "../types"
 
-export default (state, action) => {
+const contactReducer = (state, action) => {
   switch (action.type) {
     case GET_CONTACTS:
       return {
         ...state,
         contacts: action.payload,
-        loading: false
-      };
+        loading: false,
+      }
     case ADD_CONTACT:
       return {
         ...state,
         contacts: [action.payload, ...state.contacts],
-        loading: false
-      };
+        loading: false,
+      }
     case DELETE_CONTACT:
       return {
         ...state,
         contacts: state.contacts.filter(
-          contact => contact._id !== action.payload
+          (contact) => contact._id !== action.payload
         ),
-        loading: false
-      };
+        loading: false,
+      }
     case CLEAR_CONTACTS:
       return {
         ...state,
         contacts: null,
         filtered: null,
         error: null,
-        current: null
-      };
+        current: null,
+      }
     case SET_CURRENT:
       return {
         ...state,
-        current: action.payload
-      };
+        current: action.payload,
+      }
     case UPDATE_CONTACT:
       return {
         ...state,
-        contacts: state.contacts.map(contact =>
+        contacts: state.contacts.map((contact) =>
           contact._id === action.payload._id ? action.payload : contact
         ),
-        loading: false
-      };
+        loading: false,
+      }
     case FILTER_CONTACT:
       return {
         ...state,
-        filtered: state.contacts.filter(contact => {
-          const reqex = new RegExp(`${action.payload}`, "gi");
-          return contact.name.match(reqex) || contact.email.match(reqex);
-        })
-      };
+        filtered: state.contacts.filter((contact) => {
+          const reqex = new RegExp(`${action.payload}`, "gi")
+          return contact.name.match(reqex) || contact.email.match(reqex)
+        }),
+      }
     case CLEAR_CURRENT:
       return {
         ...state,
-        current: null
-      };
+        current: null,
+      }
     case CLEAR_FILTER:
       return {
         ...state,
-        current: null
-      };
+        current: null,
+      }
     case CONTACT_ERROR:
       return {
         ...state,
-        error: action.payload
-      };
+        error: action.payload,
+      }
     default:
-      return state;
+      return state
   }
-};
+}
+
+export default contactReducer
