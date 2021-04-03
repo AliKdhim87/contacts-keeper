@@ -49,3 +49,4 @@
 - Run only the server-side from the root directory `npm run server`
 
 - Run only the clint-side from the root directory `npm run client`
+- Live link [https://guarded-woodland-78690.herokuapp.com/login](https://guarded-woodland-78690.herokuapp.com/login)
